@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragments/layout">
+
+<body>
+
+    <div layout:fragment="content">
+
+        <div class="col-lg-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    List of users
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <!--<th>Department</th>-->
+                                <th>E-Mail</th>
+                                <th>Phone</th>
+                                <th>Position</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user: ${users}">
+                                <td th:text="${user.id}"></td>
+                                <td th:text="${user.firstName+' '+user.lastName}"></td>
+                                <!--<td th:text="${user.department.name}"></td>-->
+                                <td th:text="${user.email}"></td>
+                                <td th:text="${user.phone}"></td>
+                                <td th:text="${user.position}"></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a th:href="'users/'+${user.id}+'/edit'" class="btn btn-primary btn-sm"><i class="fa fa-edit fa-fw"></i></a>
+                                        <a th:href="'users/'+${user.id}+'/pass'" class="btn btn-primary btn-sm"><i class="fa fa-gear fa-fw"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-9 -->
+        <div class="col-lg-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="/users/new" class="btn btn-block btn-success btn-lg"><i class="fa fa-plus fa-fw"></i> Add new user</a>
+                    <hr>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id tellus ac purus posuere tempor vitae id dui. Duis commodo enim dolor, id tincidunt sem hendrerit a. Nulla posuere massa at nulla ultricies ultricies. Etiam nisi tellus, aliquam eget dui at, placerat condimentum leo. Suspendisse in pretium erat.</p>
+                    <hr>
+                    <p><i class="fa fa-edit fa-fw"></i> Edit user</p>
+                    <p><i class="fa fa-gear fa-fw"></i> Change password</p>
+                </div>
+
+            </div>
+        </div>
+        <!-- /.col-lg-3 -->
+    </div>
+    <!-- /.row -->
+
+</body>
+</html>

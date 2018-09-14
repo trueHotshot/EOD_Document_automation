@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragments/layout">
+
+<body>
+<div layout:fragment="content">
+        <div class="col-lg-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    List of department members
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="users">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>E-Mail</th>
+                                <th>Phone</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user:${department.members}">
+                                <td th:text="${user.id}"></td>
+                                <td th:text="${user.firstName+' '+user.lastName}"></td>
+                                <td th:text="${user.email}"></td>
+                                <td th:text="${user.phone}"></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-9 -->
+    <div class="col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a th:href="'/departments/'+${department.id}+'/add'" class="btn btn-block btn-success btn-lg"><i class="fa fa-plus fa-fw"></i> Add member</a>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id tellus ac purus posuere tempor vitae id dui. Duis commodo enim dolor, id tincidunt sem hendrerit a. Nulla posuere massa at nulla ultricies ultricies. Etiam nisi tellus, aliquam eget dui at, placerat condimentum leo. Suspendisse in pretium erat.</p>
+                <hr>
+                <p><i class="fa fa-trash fa-fw"></i> Remove member</p>
+            </div>
+
+        </div>
+    </div>
+    <!-- /.col-lg-3 -->
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragments/layout">
+
+<body>
+<div layout:fragment="content">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Department form
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <!-- FORM STARTS HERE -->
+                <form th:action="@{/departments/new}" th:object="${department}" method="post" id="contact_form">
+                    <input type="hidden" th:field="*{id}" th:value="*{id}" />
+
+                    <!-- DEPARTMENT NAME -->
+                    <div class="form-group row">
+                        <div class="col-lg-1 col-md-offset-3"><label>Name: </label></div>
+                        <div class="col-lg-5">
+                            <input th:field="*{name}" class="form-control" th:errorclass="is-invalid">
+                            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger">Department name Error</p>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <!-- SUBMIT BUTTON -->
+                    <div class="form-group row">
+                        <div class="col-lg-4 col-md-offset-3">
+                            <p><button type="submit" id="submit" class="btn btn-primary" ><i class="fa fa-save fa-fw"></i> Save</button> <a href="/departments" class="btn btn-default" role="button">Cancel</a></p>
+                        </div>
+                    </div>
+                </form>
+                <!-- FORM ENDS HERE -->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

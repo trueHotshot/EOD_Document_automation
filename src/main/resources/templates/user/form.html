@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragments/layout">
+
+<body>
+<div layout:fragment="content">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    User form
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div th:include="fragments/user-form :: form">Form</div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

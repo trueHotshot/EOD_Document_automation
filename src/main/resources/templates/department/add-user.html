@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragments/layout">
+
+<body>
+<div layout:fragment="content">
+    <div class="col-lg-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Add new member to Department
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="users">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>E-Mail</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+        </div>
+    </div>
+    <!-- /.col-lg-9 -->
+    <div class="col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="searchUser" method="post" action="">
+                    <div class="input-group">
+
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                    </div>
+                </form>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id tellus ac purus posuere tempor vitae id dui. Duis commodo enim dolor, id tincidunt sem hendrerit a. Nulla posuere massa at nulla ultricies ultricies. Etiam nisi tellus, aliquam eget dui at, placerat condimentum leo. Suspendisse in pretium erat.</p>
+                <hr>
+                <p><i class="fa fa-plus fa-fw"></i> Add member to department</p>
+            </div>
+
+        </div>
+    </div>
+    <!-- /.col-lg-3 -->
+</div>
+</body>
+</html>

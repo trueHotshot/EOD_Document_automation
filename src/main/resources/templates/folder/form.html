@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragments/layout">
+
+<body>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Folder form</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+                <!-- FORM STARTS HERE -->
+                <form th:action="@{/folders/save}" th:object="${folder}" method="post" id="contact_form">
+                    <input type="hidden" th:field="*{id}" th:value="*{id}" />
+                    <input type="hidden" th:field="*{year}" th:value="*{year}" />
+                    <input type="hidden" th:field="*{caseId}" th:value="*{caseId}" />
+
+                    <!-- DEPARTMENT NAME -->
+                    <div class="form-group row">
+                        <label class="col-md-2 control-label">Name:</label>
+                        <div class="col-md-10 inputGroupContainer">
+                            <select th:field="*{department}" class="form-control" th:errorclass="is-invalid">
+                                <option th:each="department : ${departments}"
+                                    th:value="${department.id}"
+                                    th:text="${department.name}">Department select options</option>
+                            </select>
+                            <!-- <form:select path="authors" items="${authors}" itemValue="id" itemLabel="fullName" multiple="true" cssClass="form-control" cssErrorClass="form-control is-invalid" /> -->
+                            <div th:if="${#fields.hasErrors('department')}" th:errors="*{department}" class="alert alert-danger">Department Error</div>
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT BUTTON -->
+                    <div class="col-md-12">
+                        <button type="submit" id="submit" class="btn btn-primary btn-block" >Submit</button>
+                    </div>
+                </form>
+                <!-- FORM ENDS HERE -->
+</div>
+</body>
+</html>
